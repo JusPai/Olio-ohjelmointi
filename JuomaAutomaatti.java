@@ -1,5 +1,6 @@
-package juoma_automaatti;
+package juoma;
 
+import java.util.Scanner;
 
 public class JuomaAutomaatti { 
 	
@@ -18,7 +19,7 @@ public class JuomaAutomaatti {
 			this.Kahvia = 0;
 			System.out.println("Kahvia ei ole enää jäljellä. Täytä säiliö.");}
 		else this.Kahvia -= 10;
-			System.out.println("Odota hetki, Kahvisi valmistuu. Kahvia jälellä"  + this.Kahvia + " yksikköä");
+			System.out.println("Odota hetki, Kahvisi valmistuu. Kahvia jälellä "  + this.Kahvia + " yksikköä");
     	}
     
     public void valmistaTee() {
@@ -26,7 +27,7 @@ public class JuomaAutomaatti {
 			this.Teetä = 0;
 			System.out.println("Teetä ei ole enää jäljellä. Täytä säiliö.");}
 		else this.Teetä -= 10;
-			System.out.println("Odota hetki, teesi valmistuu. Teetä jälellä"  + this.Teetä + " yksikköä");
+			System.out.println("Odota hetki, teesi valmistuu. Teetä jälellä "  + this.Teetä + " yksikköä");
     	}
     
     public void valmistaKaakao() {
@@ -34,7 +35,7 @@ public class JuomaAutomaatti {
 			this.Kaakaota = 0;
 			System.out.println("Kaakaota ei ole enää jäljellä. Täytä säiliö.");}
 		else this.Kahvia -= 10;
-			System.out.println("Odota hetki, kaakaosi valmistuu. Kaakaota jäljellä" + this.Kaakaota + " yksikköä.");
+			System.out.println("Odota hetki, kaakaosi valmistuu. Kaakaota jäljellä " + this.Kaakaota + " yksikköä.");
     	}
     	
 
@@ -42,18 +43,41 @@ public class JuomaAutomaatti {
 	
 	public static void main(String[] args) {
 	    
+		int valinta = 0;
 		
-		
+		Scanner lukija = new Scanner(System.in);
+        
 		JuomaAutomaatti omaKone = new JuomaAutomaatti();
 		
-		omaKone.valmistaKahvi();
-		omaKone.valmistaKahvi();
-		omaKone.valmistaTee();
-		omaKone.valmistaTee();
-		omaKone.valmistaTee();
-		omaKone.valmistaTee();
-		omaKone.valmistaTee();
-		omaKone.valmistaTee();
+		
+        
+		while(true) {
+			
+			System.out.println("*******Juoma-Automaatti*******");
+			System.out.println("1. Kahvi");
+			System.out.println("2. Tee");
+			System.out.println("3. Kaakao");
+			System.out.println("4. Lopeta");
+			System.out.println("******************************");
+			
+			valinta = lukija.nextInt();
+			
+			if (valinta == 1)
+				omaKone.valmistaKahvi();
+			
+			else if (valinta == 2)
+				omaKone.valmistaTee();
+			else if (valinta == 3)
+				omaKone.valmistaKaakao();
+			else if (valinta == 4)
+					break;
+			
+			}
+        
+		
+		
+		
+		
 		}
 	
 }
